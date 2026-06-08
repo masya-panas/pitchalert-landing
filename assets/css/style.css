@@ -52,27 +52,27 @@
   --color-green-glow:   rgba(22, 163, 74, 0.35);
   --color-mint-accent:  #6EE7B7;
 
-  /* Dark backgrounds */
-  --color-bg:           #0A0F0D;
-  --color-bg-2:         #0D1512;
-  --color-surface:      #111A14;
-  --color-surface-2:    #162019;
-  --color-card:         #131D16;
-  --color-card-hover:   #192618;
+  /* Dark backgrounds (navy — per redesign brief) */
+  --color-bg:           #06131D;
+  --color-bg-2:         #091A28;
+  --color-surface:      #0D1B29;
+  --color-surface-2:    #122334;
+  --color-card:         #0D1B29;
+  --color-card-hover:   #122334;
 
-  /* Borders */
-  --color-border:       rgba(110, 231, 183, 0.10);
-  --color-border-mid:   rgba(110, 231, 183, 0.18);
+  /* Borders (subtle slate) */
+  --color-border:       rgba(148, 163, 184, 0.12);
+  --color-border-mid:   rgba(148, 163, 184, 0.20);
 
   /* Text */
-  --color-text:         #E8EEEA;
-  --color-text-muted:   #9DB0A6;
-  --color-text-dim:     #6B8070;
+  --color-text:         #F8FAFC;
+  --color-text-muted:   #94A3B8;
+  --color-text-dim:     #64748B;
 
   /* Legacy aliases kept for legal-page reuse */
-  --color-navy:         #0A0F0D;
-  --color-muted:        #9DB0A6;
-  --color-locked:       #6B8070;
+  --color-navy:         #06131D;
+  --color-muted:        #94A3B8;
+  --color-locked:       #64748B;
   --color-mint:         rgba(110, 231, 183, 0.08);
   --color-mint-deep:    rgba(110, 231, 183, 0.15);
 
@@ -106,7 +106,7 @@
   ---------------------------------------------------------------- */
   /* Real stadium photo + dark overlay for text legibility, fading into the page bg. */
   --stadium-bg:
-    linear-gradient(180deg, rgba(7, 11, 9, 0.55) 0%, rgba(7, 11, 9, 0.72) 55%, #0A0F0D 100%),
+    linear-gradient(180deg, rgba(6, 19, 29, 0.50) 0%, rgba(6, 19, 29, 0.70) 55%, #06131D 100%),
     url('../stadium.jpg') center/cover no-repeat;
 }
 
@@ -255,8 +255,8 @@ ul  { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
-  gap: 24px;
+  height: 88px;
+  gap: 28px;
 }
 
 .nav-brand {
@@ -268,14 +268,14 @@ ul  { list-style: none; }
 }
 
 .nav-brand-mark {
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
 }
 
 .nav-brand-name {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.3px;
@@ -285,7 +285,7 @@ ul  { list-style: none; }
 .nav-links {
   display: none;
   align-items: center;
-  gap: 32px;
+  gap: 38px;
 }
 
 @media (min-width: 768px) {
@@ -293,7 +293,7 @@ ul  { list-style: none; }
 }
 
 .nav-links a {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--color-text-muted);
   transition: color 0.14s;
@@ -340,26 +340,31 @@ ul  { list-style: none; }
   }
 }
 
-/* Eyebrow pill */
+/* Eyebrow — minimal Linear-style: short accent line + uppercase label (no badge) */
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1.4px;
+  letter-spacing: 2px;
   color: var(--color-mint-accent);
-  background: rgba(110, 231, 183, 0.10);
-  border: 1px solid rgba(110, 231, 183, 0.30);
-  border-radius: 999px;
-  padding: 6px 16px;
   margin-bottom: 24px;
+}
+
+.hero-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-mint-accent);
+  opacity: 0.65;
 }
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(34px, 5.5vw, 58px);
+  font-size: clamp(32px, 5vw, 54px);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.5px;
@@ -373,6 +378,11 @@ ul  { list-style: none; }
   color: var(--color-mint-accent);
 }
 
+/* Keep "World Cup match" together on one line */
+.hero-title-hl {
+  white-space: nowrap;
+}
+
 .hero-sub {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.72);
@@ -381,36 +391,49 @@ ul  { list-style: none; }
   max-width: 480px;
 }
 
-/* 3 mini-feature pills under sub */
-.hero-mini-features {
+/* 3 hero features: icon + title + description (no pills) */
+.hero-feats {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 26px 36px;
   margin-bottom: 36px;
 }
 
-.hero-mini-feat {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.80);
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  padding: 6px 14px;
+.hero-feat {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
 }
 
-.hero-mini-feat svg {
-  width: 14px;
-  height: 14px;
+.hero-feat-icon svg {
+  width: 22px;
+  height: 22px;
   stroke: var(--color-mint-accent);
   fill: none;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
   flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.hero-feat-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-feat-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.hero-feat-desc {
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--color-text-muted);
+  max-width: 150px;
 }
 
 .hero-actions {
@@ -442,27 +465,24 @@ ul  { list-style: none; }
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1000px;
 }
 
 .hero-screenshot-wrap {
-  transform: perspective(900px) rotateY(-10deg) rotateX(3deg);
-  transition: transform 0.5s ease;
-}
-
-.hero-screenshot-wrap:hover {
-  transform: perspective(900px) rotateY(-4deg) rotateX(1deg);
+  /* Parallax target — translateY is set by parallax.js on scroll. No tilt, no hover spin. */
+  will-change: transform;
 }
 
 .hero-screenshot {
   width: 100%;
-  max-width: 400px;
-  border-radius: var(--radius-xl);
-  box-shadow:
-    0 32px 80px rgba(0, 0, 0, 0.70),
-    0 0 0 1px rgba(110, 231, 183, 0.12),
-    0 0 60px rgba(22, 163, 74, 0.20);
+  max-width: 420px;
   display: block;
+  /* Layered drop-shadow follows the popup's alpha shape (no rectangular block):
+     contact + mid + deep ambient for a premium floating feel, plus a soft green glow. */
+  filter:
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.40))
+    drop-shadow(0 22px 45px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 50px 95px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 70px rgba(22, 163, 74, 0.22));
 }
 
 /* -----------------------------------------------------------------------
@@ -522,61 +542,81 @@ ul  { list-style: none; }
    Feature rows (alternating image/text layout)
 ----------------------------------------------------------------------- */
 
-.features-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
-.feature-row {
+/* Compact 2x2 tile grid of feature cards */
+.features-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 36px;
-  align-items: center;
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: 36px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  gap: 20px;
 }
 
-.feature-row:hover {
-  border-color: var(--color-border-mid);
-  box-shadow: var(--shadow-green);
+@media (min-width: 760px) {
+  .features-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
 }
 
-@media (min-width: 768px) {
-  .feature-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-  }
-  /* Reverse: odd rows flip image to right */
-  .feature-row:nth-child(even) .feature-row-visual {
-    order: -1;
-  }
-}
-
-.feature-row-copy {
+.feature-card {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  background: linear-gradient(160deg, var(--color-surface) 0%, var(--color-bg-2) 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
-.feature-row-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: rgba(22, 163, 74, 0.12);
-  border: 1px solid rgba(22, 163, 74, 0.25);
+.feature-card:hover {
+  border-color: var(--color-border-mid);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+}
+
+/* Rounded visual panel (consistent rounded edges like the mock cards) */
+.feature-card-visual {
+  height: 196px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(120% 110% at 50% 0%, rgba(22, 163, 74, 0.14) 0%, transparent 62%),
+    #0A1726;
+}
+
+/* Popup screenshots: rounded, peeking from the top of the panel */
+.feature-card-visual img {
+  width: 80%;
+  max-width: 240px;
+  align-self: flex-start;
+  margin-top: 22px;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.50);
+}
+
+/* Mock visuals (toolbar / notification) sit centered */
+.feature-card-visual--mock img { all: unset; }
+
+.feature-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feature-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: linear-gradient(150deg, rgba(22, 163, 74, 0.22), rgba(22, 163, 74, 0.08));
+  border: 1px solid rgba(110, 231, 183, 0.28);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.feature-row-icon svg {
-  width: 24px;
-  height: 24px;
+.feature-card-icon svg {
+  width: 21px;
+  height: 21px;
   stroke: var(--color-mint-accent);
   fill: none;
   stroke-width: 2;
@@ -584,32 +624,18 @@ ul  { list-style: none; }
   stroke-linejoin: round;
 }
 
-.feature-row-title {
+.feature-card-title {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
   color: var(--color-text);
   line-height: 1.2;
 }
 
-.feature-row-desc {
-  font-size: 15px;
+.feature-card-desc {
+  font-size: 14.5px;
   color: var(--color-text-muted);
-  line-height: 1.7;
-}
-
-.feature-row-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.feature-row-visual img {
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--color-border);
-  width: 100%;
-  max-width: 360px;
+  line-height: 1.6;
 }
 
 /* -----------------------------------------------------------------------
@@ -1170,26 +1196,28 @@ ul  { list-style: none; }
 .cws-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: #1F1F1F;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  padding: 10px 18px;
+  gap: 13px;
+  background: linear-gradient(150deg, #1B1E24 0%, #11141A 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 13px 24px;
   text-decoration: none;
-  transition: border-color 0.18s, background 0.18s;
-  margin-top: 4px;
-  max-width: 260px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.38);
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+  margin-top: 12px;
 }
 
 .cws-badge:hover {
-  border-color: rgba(255, 255, 255, 0.30);
-  background: #282828;
+  transform: translateY(-2px);
+  border-color: rgba(110, 231, 183, 0.40);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 26px rgba(22, 163, 74, 0.20);
 }
 
 .cws-badge-chrome-icon {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
+  color: var(--color-mint-accent);
 }
 
 .cws-badge-text {
@@ -1235,41 +1263,12 @@ ul  { list-style: none; }
 }
 
 .footer-links a {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--color-text-muted);
   text-decoration: none;
   transition: color 0.14s;
 }
 .footer-links a:hover { color: var(--color-mint-accent); }
-
-.footer-social {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.footer-social-link {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color 0.18s, background 0.18s;
-}
-
-.footer-social-link:hover {
-  border-color: var(--color-border-mid);
-  background: var(--color-card-hover);
-}
-
-.footer-social-link svg {
-  width: 16px;
-  height: 16px;
-  fill: var(--color-text-muted);
-}
 
 .footer-bottom {
   display: flex;

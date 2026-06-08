@@ -1,6 +1,7 @@
 /**
  * faq.js — Accordion behaviour for FAQ items.
  * Vanilla JS, no dependencies. Toggles .open class and aria-expanded.
+ * Works for both single-column list and two-column layout (.faq-cols).
  */
 
 (function () {

@@ -1401,6 +1401,125 @@ ul  { list-style: none; }
 }
 
 /* -----------------------------------------------------------------------
+   Language switcher
+----------------------------------------------------------------------- */
+
+.lang-switcher {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.lang-switcher-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 7px 10px;
+  cursor: pointer;
+  transition: background 0.16s, border-color 0.16s, color 0.16s;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.lang-switcher-toggle:hover {
+  background: rgba(110, 231, 183, 0.10);
+  border-color: rgba(110, 231, 183, 0.30);
+  color: var(--color-mint-accent);
+}
+
+.lang-switcher-toggle svg {
+  flex-shrink: 0;
+}
+
+.lang-switcher-chevron {
+  transition: transform 0.20s;
+}
+
+.lang-switcher--open .lang-switcher-chevron {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 148px;
+  background: rgba(13, 27, 41, 0.97);
+  border: 1px solid var(--color-border-mid);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  z-index: 300;
+  padding: 4px 0;
+}
+
+.lang-switcher--open .lang-dropdown {
+  display: block;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.14s;
+}
+
+.lang-btn:hover,
+.lang-btn--active {
+  background: rgba(110, 231, 183, 0.08);
+}
+
+.lang-btn--active .lang-btn-code {
+  color: var(--color-mint-accent);
+}
+
+.lang-btn-code {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+  min-width: 24px;
+}
+
+.lang-btn-name {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.lang-btn--active .lang-btn-name {
+  color: var(--color-text);
+}
+
+/* On mobile, hide the lang switcher label so it sits compactly between nav links and CTA */
+@media (max-width: 767px) {
+  .lang-switcher-toggle {
+    padding: 7px 8px;
+  }
+  .lang-switcher-current {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------------------
    Responsive misc
 ----------------------------------------------------------------------- */
 

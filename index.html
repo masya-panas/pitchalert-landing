@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PitchAlert | Never Miss Your Team's World Cup 2026 Match</title>
-  <meta name="description" content="PitchAlert gives you a live countdown to your national team's next World Cup 2026 match, kickoff time in your local timezone, and reminders 24h, 3h, and 30 min before kickoff, right in your browser.">
+  <title data-i18n="meta.title">PitchAlert | Never Miss Your Team's World Cup 2026 Match</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="PitchAlert gives you a live countdown to your national team's next World Cup 2026 match, kickoff time in your local timezone, and reminders 24h, 3h, and 30 min before kickoff, right in your browser.">
   <link rel="icon" type="image/png" href="assets/logo/mark.png">
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- i18n dictionaries — synchronous, no FOUC -->
+  <script src="assets/js/i18n-data.js"></script>
 </head>
 <body>
 
@@ -17,22 +19,67 @@
     <nav class="site-nav" aria-label="Main navigation">
       <div class="container nav-inner">
 
-        <a href="/" class="nav-brand" aria-label="PitchAlert home">
+        <a href="/" class="nav-brand" data-i18n-attr="aria-label:nav.home" aria-label="PitchAlert home">
           <img src="assets/logo/mark.png" alt="" class="nav-brand-mark" width="32" height="32">
           <span class="nav-brand-name">PitchAlert</span>
         </a>
 
         <ul class="nav-links" role="list">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#features" data-i18n="nav.features">Features</a></li>
+          <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
         </ul>
+
+        <!-- Language switcher -->
+        <div class="lang-switcher" role="navigation" aria-label="Language">
+          <button
+            class="lang-switcher-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+            data-i18n-attr="aria-label:nav.langLabel"
+            aria-label="Language"
+          >
+            <!-- Globe icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span class="lang-switcher-current">EN</span>
+            <svg class="lang-switcher-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <ul class="lang-dropdown" role="list">
+            <li>
+              <button class="lang-btn lang-btn--active" data-lang="en" aria-current="true">
+                <span class="lang-btn-code">EN</span>
+                <span class="lang-btn-name">English</span>
+              </button>
+            </li>
+            <li>
+              <button class="lang-btn" data-lang="es" aria-current="false">
+                <span class="lang-btn-code">ES</span>
+                <span class="lang-btn-name">Español</span>
+              </button>
+            </li>
+            <li>
+              <button class="lang-btn" data-lang="pt-br" aria-current="false">
+                <span class="lang-btn-code">PT</span>
+                <span class="lang-btn-name">Português</span>
+              </button>
+            </li>
+          </ul>
+        </div>
 
         <a
           href="https://chromewebstore.google.com/detail/pitchalert/bgmcmmhmpmnfkdcknpfgkmeljocdfhgc"
           class="btn btn-primary nav-cta"
           rel="noopener noreferrer"
           target="_blank"
+          data-i18n="nav.cta"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -60,14 +107,14 @@
         <!-- Copy side -->
         <div class="hero-copy">
 
-          <p class="hero-eyebrow">World Cup 2026</p>
+          <p class="hero-eyebrow" data-i18n="hero.eyebrow">World Cup 2026</p>
 
           <h1 class="hero-title" id="hero-heading">
-            Never miss your team's
-            <span class="hero-title-hl"><em>World Cup</em> match</span>
+            <span data-i18n="hero.title">Never miss your team's</span>
+            <span class="hero-title-hl"><em data-i18n="hero.titleHlEm">World Cup</em> <span data-i18n="hero.titleHl">match</span></span>
           </h1>
 
-          <p class="hero-sub">
+          <p class="hero-sub" data-i18n="hero.sub">
             Live countdown. Local kickoff time. Browser reminders.
           </p>
 
@@ -78,8 +125,8 @@
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
               </span>
               <span class="hero-feat-text">
-                <span class="hero-feat-title">Live countdown</span>
-                <span class="hero-feat-desc">Always know what's next</span>
+                <span class="hero-feat-title" data-i18n="hero.feat1Title">Live countdown</span>
+                <span class="hero-feat-desc" data-i18n="hero.feat1Desc">Always know what's next</span>
               </span>
             </div>
             <div class="hero-feat" role="listitem">
@@ -87,8 +134,8 @@
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </span>
               <span class="hero-feat-text">
-                <span class="hero-feat-title">Local time</span>
-                <span class="hero-feat-desc">Kickoff times in your time zone</span>
+                <span class="hero-feat-title" data-i18n="hero.feat2Title">Local time</span>
+                <span class="hero-feat-desc" data-i18n="hero.feat2Desc">Kickoff times in your time zone</span>
               </span>
             </div>
             <div class="hero-feat" role="listitem">
@@ -96,8 +143,8 @@
                 <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
               </span>
               <span class="hero-feat-text">
-                <span class="hero-feat-title">Smart reminders</span>
-                <span class="hero-feat-desc">Get notified before every match</span>
+                <span class="hero-feat-title" data-i18n="hero.feat3Title">Smart reminders</span>
+                <span class="hero-feat-desc" data-i18n="hero.feat3Desc">Get notified before every match</span>
               </span>
             </div>
           </div>
@@ -108,6 +155,7 @@
               class="btn btn-primary"
               rel="noopener noreferrer"
               target="_blank"
+              data-i18n="hero.ctaPrimary"
             >
               <!-- Chrome icon -->
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -120,15 +168,15 @@
               </svg>
               Add to Chrome - Free
             </a>
-            <a href="#screenshots" class="btn btn-outline">See demo</a>
+            <a href="#screenshots" class="btn btn-outline" data-i18n="hero.ctaSecondary">See demo</a>
           </div>
 
           <p class="hero-proof">
-            <span>Free forever</span>
+            <span data-i18n="hero.proof1">Free forever</span>
             <span class="hero-proof-dot" aria-hidden="true"></span>
-            <span>No account needed</span>
+            <span data-i18n="hero.proof2">No account needed</span>
             <span class="hero-proof-dot" aria-hidden="true"></span>
-            <span>No ads, no tracking</span>
+            <span data-i18n="hero.proof3">No ads, no tracking</span>
           </p>
 
         </div>
@@ -139,6 +187,7 @@
             <img
               src="assets/screenshots/hero.webp"
               alt="PitchAlert extension popup showing a countdown to the Brazil match with live timer and reminder toggles"
+              data-i18n-attr="alt:hero.shotAlt"
               class="hero-screenshot"
               width="400"
               height="577"
@@ -157,42 +206,50 @@
       <div class="container">
 
         <div class="section-header">
-          <span class="section-label">Everything you need</span>
-          <h2 class="section-title" id="features-heading">Stay on top of every match</h2>
-          <p class="section-sub">Designed for fans. Built for your browser.</p>
+          <span class="section-label" data-i18n="features.label">Everything you need</span>
+          <h2 class="section-title" id="features-heading" data-i18n="features.title">Stay on top of every match</h2>
+          <p class="section-sub" data-i18n="features.sub">Designed for fans. Built for your browser.</p>
         </div>
 
         <div class="features-grid">
 
           <article class="feature-card">
             <div class="feature-card-visual">
-              <img src="assets/screenshots/feat-countdown.png" alt="PitchAlert countdown screen showing the live timer to the next USA match" loading="lazy">
+              <img src="assets/screenshots/feat-countdown.png"
+                   alt="PitchAlert countdown screen showing the live timer to the next USA match"
+                   data-i18n-attr="alt:features.card1ImgAlt"
+                   loading="lazy">
             </div>
             <div class="feature-card-head">
               <span class="feature-card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
               </span>
-              <h3 class="feature-card-title">Live countdown</h3>
+              <h3 class="feature-card-title" data-i18n="features.card1Title">Live countdown</h3>
             </div>
-            <p class="feature-card-desc">See the exact time remaining until kickoff, updated in real time.</p>
+            <p class="feature-card-desc" data-i18n="features.card1Desc">See the exact time remaining until kickoff, updated in real time.</p>
           </article>
 
           <article class="feature-card">
             <div class="feature-card-visual">
-              <img src="assets/screenshots/feat-picker.png" alt="PitchAlert team picker showing all 48 World Cup teams" loading="lazy">
+              <img src="assets/screenshots/feat-picker.png"
+                   alt="PitchAlert team picker showing all 48 World Cup teams"
+                   data-i18n-attr="alt:features.card2ImgAlt"
+                   loading="lazy">
             </div>
             <div class="feature-card-head">
               <span class="feature-card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
               </span>
-              <h3 class="feature-card-title">Pick your team</h3>
+              <h3 class="feature-card-title" data-i18n="features.card2Title">Pick your team</h3>
             </div>
-            <p class="feature-card-desc">Choose your national team, all 48 are included. Saved locally, no account.</p>
+            <p class="feature-card-desc" data-i18n="features.card2Desc">Choose your national team, all 48 are included. Saved locally, no account.</p>
           </article>
 
           <article class="feature-card">
             <div class="feature-card-visual feature-card-visual--mock" aria-hidden="true">
-              <div class="toolbar-mock" role="img" aria-label="Chrome toolbar showing PitchAlert icon with a 10-day countdown badge">
+              <div class="toolbar-mock" role="img"
+                   aria-label="Chrome toolbar showing PitchAlert icon with a 10-day countdown badge"
+                   data-i18n-attr="aria-label:features.card3MockAlt">
                 <div class="toolbar-mock-bar"></div>
                 <div class="toolbar-mock-actions">
                   <div class="toolbar-mock-btn"></div>
@@ -208,14 +265,16 @@
               <span class="feature-card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
               </span>
-              <h3 class="feature-card-title">Toolbar badge</h3>
+              <h3 class="feature-card-title" data-i18n="features.card3Title">Toolbar badge</h3>
             </div>
-            <p class="feature-card-desc">Days to kickoff right on your Chrome toolbar. No need to open the popup.</p>
+            <p class="feature-card-desc" data-i18n="features.card3Desc">Days to kickoff right on your Chrome toolbar. No need to open the popup.</p>
           </article>
 
           <article class="feature-card">
             <div class="feature-card-visual feature-card-visual--mock" aria-hidden="true">
-              <div class="notif-mock" role="img" aria-label="Chrome notification: Kickoff in 30 minutes, Brazil vs Morocco, Today at 7:00 PM">
+              <div class="notif-mock" role="img"
+                   aria-label="Chrome notification: Kickoff in 30 minutes, Brazil vs Morocco, Today at 7:00 PM"
+                   data-i18n-attr="aria-label:features.card4MockAlt">
                 <div class="notif-mock-header">
                   <div class="notif-mock-icon">
                     <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -223,17 +282,17 @@
                   <span class="notif-mock-app">PitchAlert</span>
                   <span class="notif-mock-time">now</span>
                 </div>
-                <p class="notif-mock-title">Kickoff in 30 minutes</p>
-                <p class="notif-mock-body">Brazil vs Morocco &bull; Today at 7:00 PM</p>
+                <p class="notif-mock-title" data-i18n="features.card4NotifTitle">Kickoff in 30 minutes</p>
+                <p class="notif-mock-body" data-i18n="features.card4NotifBody">Brazil vs Morocco &bull; Today at 7:00 PM</p>
               </div>
             </div>
             <div class="feature-card-head">
               <span class="feature-card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
               </span>
-              <h3 class="feature-card-title">Reminders</h3>
+              <h3 class="feature-card-title" data-i18n="features.card4Title">Reminders</h3>
             </div>
-            <p class="feature-card-desc">Get notified 24h, 3h, or 30 min before kickoff, even in another tab.</p>
+            <p class="feature-card-desc" data-i18n="features.card4Desc">Get notified 24h, 3h, or 30 min before kickoff, even in another tab.</p>
           </article>
 
         </div>
@@ -247,45 +306,78 @@
       <div class="container">
 
         <div class="section-header">
-          <span class="section-label">See it in action</span>
-          <h2 class="section-title" id="carousel-heading">Everything at your fingertips</h2>
+          <span class="section-label" data-i18n="carousel.label">See it in action</span>
+          <h2 class="section-title" id="carousel-heading" data-i18n="carousel.title">Everything at your fingertips</h2>
         </div>
 
-        <div class="carousel-wrapper" role="region" aria-label="Extension screenshots carousel" tabindex="0">
+        <div class="carousel-wrapper" role="region"
+             aria-label="Extension screenshots carousel"
+             data-i18n-attr="aria-label:carousel.regionLabel"
+             tabindex="0">
 
           <div class="carousel-track-outer">
             <div class="carousel-track" aria-live="polite">
               <div class="carousel-slide" aria-hidden="false">
-                <img src="assets/screenshots/carousel-1.png" alt="PitchAlert, main countdown screen showing the next match" loading="lazy" width="1280" height="800">
+                <img src="assets/screenshots/carousel-1.png"
+                     alt="PitchAlert, main countdown screen showing the next match"
+                     data-i18n-attr="alt:carousel.slide1Alt"
+                     loading="lazy" width="1280" height="800">
               </div>
               <div class="carousel-slide" aria-hidden="true">
-                <img src="assets/screenshots/carousel-2.png" alt="PitchAlert, team picker with all 48 World Cup teams" loading="lazy" width="1280" height="800">
+                <img src="assets/screenshots/carousel-2.png"
+                     alt="PitchAlert, team picker with all 48 World Cup teams"
+                     data-i18n-attr="alt:carousel.slide2Alt"
+                     loading="lazy" width="1280" height="800">
               </div>
               <div class="carousel-slide" aria-hidden="true">
-                <img src="assets/screenshots/carousel-3.png" alt="PitchAlert, reminder settings screen" loading="lazy" width="1280" height="800">
+                <img src="assets/screenshots/carousel-3.png"
+                     alt="PitchAlert, reminder settings screen"
+                     data-i18n-attr="alt:carousel.slide3Alt"
+                     loading="lazy" width="1280" height="800">
               </div>
               <div class="carousel-slide" aria-hidden="true">
-                <img src="assets/screenshots/carousel-4.png" alt="PitchAlert, full match schedule view" loading="lazy" width="1280" height="800">
+                <img src="assets/screenshots/carousel-4.png"
+                     alt="PitchAlert, full match schedule view"
+                     data-i18n-attr="alt:carousel.slide4Alt"
+                     loading="lazy" width="1280" height="800">
               </div>
               <div class="carousel-slide" aria-hidden="true">
-                <img src="assets/screenshots/carousel-5.png" alt="PitchAlert, share with friends screen" loading="lazy" width="1280" height="800">
+                <img src="assets/screenshots/carousel-5.png"
+                     alt="PitchAlert, share with friends screen"
+                     data-i18n-attr="alt:carousel.slide5Alt"
+                     loading="lazy" width="1280" height="800">
               </div>
             </div>
           </div>
 
-          <button class="carousel-btn carousel-btn-prev" aria-label="Previous screenshot">
+          <button class="carousel-btn carousel-btn-prev"
+                  aria-label="Previous screenshot"
+                  data-i18n-attr="aria-label:carousel.prevBtn">
             <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
-          <button class="carousel-btn carousel-btn-next" aria-label="Next screenshot">
+          <button class="carousel-btn carousel-btn-next"
+                  aria-label="Next screenshot"
+                  data-i18n-attr="aria-label:carousel.nextBtn">
             <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
 
-          <div class="carousel-dots" role="list" aria-label="Slide indicators">
-            <button class="carousel-dot active" role="listitem" aria-label="Slide 1" aria-current="true"></button>
-            <button class="carousel-dot" role="listitem" aria-label="Slide 2" aria-current="false"></button>
-            <button class="carousel-dot" role="listitem" aria-label="Slide 3" aria-current="false"></button>
-            <button class="carousel-dot" role="listitem" aria-label="Slide 4" aria-current="false"></button>
-            <button class="carousel-dot" role="listitem" aria-label="Slide 5" aria-current="false"></button>
+          <div class="carousel-dots" role="list"
+               aria-label="Slide indicators">
+            <button class="carousel-dot active" role="listitem"
+                    aria-label="Slide 1" data-i18n-attr="aria-label:carousel.slide1Indicator"
+                    aria-current="true"></button>
+            <button class="carousel-dot" role="listitem"
+                    aria-label="Slide 2" data-i18n-attr="aria-label:carousel.slide2Indicator"
+                    aria-current="false"></button>
+            <button class="carousel-dot" role="listitem"
+                    aria-label="Slide 3" data-i18n-attr="aria-label:carousel.slide3Indicator"
+                    aria-current="false"></button>
+            <button class="carousel-dot" role="listitem"
+                    aria-label="Slide 4" data-i18n-attr="aria-label:carousel.slide4Indicator"
+                    aria-current="false"></button>
+            <button class="carousel-dot" role="listitem"
+                    aria-label="Slide 5" data-i18n-attr="aria-label:carousel.slide5Indicator"
+                    aria-current="false"></button>
           </div>
 
         </div>
@@ -295,14 +387,16 @@
     <!-- ==================================================================
          TRUST BAR
     =================================================================== -->
-    <div class="trust-bar" role="region" aria-label="Key facts">
+    <div class="trust-bar" role="region"
+         aria-label="Key facts"
+         data-i18n-attr="aria-label:trust.regionLabel">
       <div class="container">
         <ul class="trust-items" role="list">
 
           <li class="trust-item">
             <!-- Flag icon -->
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-            All 48 teams
+            <span data-i18n="trust.item1">All 48 teams</span>
           </li>
 
           <li class="trust-item">
@@ -311,19 +405,19 @@
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               <line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/>
             </svg>
-            No ads, no tracking
+            <span data-i18n="trust.item2">No ads, no tracking</span>
           </li>
 
           <li class="trust-item">
             <!-- Wifi-off icon -->
             <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.56 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-            Works offline
+            <span data-i18n="trust.item3">Works offline</span>
           </li>
 
           <li class="trust-item">
             <!-- Tag / free icon -->
             <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-            Free - no account
+            <span data-i18n="trust.item4">Free - no account</span>
           </li>
 
         </ul>
@@ -337,20 +431,20 @@
       <div class="container">
 
         <div class="section-header">
-          <span class="section-label">Simple pricing</span>
-          <h2 class="section-title" id="pricing-heading">Free to start. Upgrade for more.</h2>
-          <p class="section-sub">The core experience is completely free. Pro is a one-time payment, no subscription, no recurring charges.</p>
+          <span class="section-label" data-i18n="pricing.label">Simple pricing</span>
+          <h2 class="section-title" id="pricing-heading" data-i18n="pricing.title">Free to start. Upgrade for more.</h2>
+          <p class="section-sub" data-i18n="pricing.sub">The core experience is completely free. Pro is a one-time payment, no subscription, no recurring charges.</p>
         </div>
 
         <div class="pricing-grid">
 
           <!-- Free -->
           <div class="pricing-card">
-            <p class="pricing-plan-name">Free</p>
-            <div class="pricing-price" aria-label="$0">
+            <p class="pricing-plan-name" data-i18n="pricing.freePlan">Free</p>
+            <div class="pricing-price" aria-label="$0" data-i18n-attr="aria-label:pricing.freePrice">
               $<span>0</span>
             </div>
-            <p class="pricing-price-note">Forever free</p>
+            <p class="pricing-price-note" data-i18n="pricing.freePriceNote">Forever free</p>
 
             <hr class="pricing-divider" aria-hidden="true">
 
@@ -361,7 +455,7 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                One team
+                <span data-i18n="pricing.free1">One team</span>
               </li>
               <li class="pricing-feature">
                 <svg class="pricing-feature-icon pricing-feature-icon--check" viewBox="0 0 18 18"
@@ -369,7 +463,7 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                Live countdown
+                <span data-i18n="pricing.free2">Live countdown</span>
               </li>
               <li class="pricing-feature">
                 <svg class="pricing-feature-icon pricing-feature-icon--check" viewBox="0 0 18 18"
@@ -377,7 +471,7 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                Local kickoff time
+                <span data-i18n="pricing.free3">Local kickoff time</span>
               </li>
               <li class="pricing-feature">
                 <svg class="pricing-feature-icon pricing-feature-icon--check" viewBox="0 0 18 18"
@@ -385,7 +479,7 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                Reminders 24h / 3h / 30min
+                <span data-i18n="pricing.free4">Reminders 24h / 3h / 30min</span>
               </li>
               <li class="pricing-feature">
                 <svg class="pricing-feature-icon pricing-feature-icon--check" viewBox="0 0 18 18"
@@ -393,7 +487,7 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                Toolbar badge
+                <span data-i18n="pricing.free5">Toolbar badge</span>
               </li>
             </ul>
 
@@ -402,6 +496,7 @@
               class="btn btn-outline"
               rel="noopener noreferrer"
               target="_blank"
+              data-i18n="pricing.freeCta"
             >
               Add to Chrome - Free
             </a>
@@ -409,12 +504,14 @@
 
           <!-- Pro -->
           <div class="pricing-card pricing-card--pro">
-            <div class="pricing-badge" aria-label="Most popular">MOST POPULAR</div>
-            <p class="pricing-plan-name">Pro</p>
-            <div class="pricing-price" aria-label="$9.90">
+            <div class="pricing-badge" data-i18n-attr="aria-label:pricing.proBadge" aria-label="Most popular">
+              <span data-i18n="pricing.proBadge">MOST POPULAR</span>
+            </div>
+            <p class="pricing-plan-name" data-i18n="pricing.proPlan">Pro</p>
+            <div class="pricing-price" aria-label="$9.90" data-i18n-attr="aria-label:pricing.proPrice">
               <sup>$</sup>9.90
             </div>
-            <p class="pricing-price-note">One-time payment - no subscription</p>
+            <p class="pricing-price-note" data-i18n="pricing.proPriceNote">One-time payment - no subscription</p>
 
             <hr class="pricing-divider" aria-hidden="true">
 
@@ -425,7 +522,7 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                Unlimited teams
+                <span data-i18n="pricing.pro1">Unlimited teams</span>
               </li>
               <li class="pricing-feature">
                 <svg class="pricing-feature-icon pricing-feature-icon--check" viewBox="0 0 18 18"
@@ -433,7 +530,7 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                Follow multiple teams + full tournament
+                <span data-i18n="pricing.pro2">Follow multiple teams + full tournament</span>
               </li>
               <li class="pricing-feature">
                 <svg class="pricing-feature-icon pricing-feature-icon--check" viewBox="0 0 18 18"
@@ -441,7 +538,7 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                Smart custom reminders
+                <span data-i18n="pricing.pro3">Smart custom reminders</span>
               </li>
               <li class="pricing-feature">
                 <svg class="pricing-feature-icon pricing-feature-icon--check" viewBox="0 0 18 18"
@@ -449,7 +546,7 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                Where to watch + broadcaster links
+                <span data-i18n="pricing.pro4">Where to watch + broadcaster links</span>
               </li>
               <li class="pricing-feature">
                 <svg class="pricing-feature-icon pricing-feature-icon--check" viewBox="0 0 18 18"
@@ -457,7 +554,7 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                Add matches to Google Calendar
+                <span data-i18n="pricing.pro5">Add matches to Google Calendar</span>
               </li>
               <li class="pricing-feature">
                 <svg class="pricing-feature-icon pricing-feature-icon--check" viewBox="0 0 18 18"
@@ -465,16 +562,16 @@
                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 9 6.5 12.5 15 5"/>
                 </svg>
-                Priority support
+                <span data-i18n="pricing.pro6">Priority support</span>
               </li>
             </ul>
 
             <!-- Pro CTA, disabled until Paddle is live. href kept as comment for wiring later.
                  __PADDLE_CHECKOUT_URL__ -->
-            <button class="btn btn-disabled" disabled aria-disabled="true">
+            <button class="btn btn-disabled" disabled aria-disabled="true" data-i18n="pricing.proComingSoon">
               Coming soon
             </button>
-            <p class="pricing-note">Payment processed securely by <strong>Paddle</strong>. Merchant of Record.</p>
+            <p class="pricing-note" data-i18n="pricing.proNote" data-i18n-html>Payment processed securely by <strong>Paddle</strong>. Merchant of Record.</p>
           </div>
 
         </div>
@@ -488,7 +585,7 @@
       <div class="container">
 
         <div class="section-header">
-          <h2 class="section-title" id="faq-heading">Common questions</h2>
+          <h2 class="section-title" id="faq-heading" data-i18n="faq.title">Common questions</h2>
         </div>
 
         <div class="faq-cols">
@@ -499,14 +596,14 @@
 
               <li class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq-1-answer" id="faq-1-btn">
-                  Is PitchAlert really free?
+                  <span data-i18n="faq.q1">Is PitchAlert really free?</span>
                   <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9"/>
                   </svg>
                 </button>
                 <div class="faq-answer" id="faq-1-answer" role="region" aria-labelledby="faq-1-btn">
-                  <div class="faq-answer-inner">
+                  <div class="faq-answer-inner" data-i18n="faq.a1">
                     Yes. The core features, countdown, local kickoff time, 24h / 3h / 30min reminders, and following one national team, are free forever. No account, no subscription, no ads.
                   </div>
                 </div>
@@ -514,14 +611,14 @@
 
               <li class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq-2-answer" id="faq-2-btn">
-                  What does the Pro upgrade add?
+                  <span data-i18n="faq.q2">What does the Pro upgrade add?</span>
                   <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9"/>
                   </svg>
                 </button>
                 <div class="faq-answer" id="faq-2-answer" role="region" aria-labelledby="faq-2-btn">
-                  <div class="faq-answer-inner">
+                  <div class="faq-answer-inner" data-i18n="faq.a2">
                     Pro is a one-time payment of $9.90 (no subscription). It unlocks: following multiple teams with a full-tournament view, smart custom reminders, where-to-watch broadcaster links by country, and adding matches to Google Calendar or downloading an .ics file.
                   </div>
                 </div>
@@ -529,14 +626,14 @@
 
               <li class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq-3-answer" id="faq-3-btn">
-                  Do you collect my personal data?
+                  <span data-i18n="faq.q3">Do you collect my personal data?</span>
                   <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9"/>
                   </svg>
                 </button>
                 <div class="faq-answer" id="faq-3-answer" role="region" aria-labelledby="faq-3-btn">
-                  <div class="faq-answer-inner">
+                  <div class="faq-answer-inner" data-i18n="faq.a3">
                     No. PitchAlert stores only your selected team and reminder preferences locally on your device using Chrome's built-in storage. Nothing is sent to any server. No analytics, no tracking pixels, no third-party scripts, in the extension or on this website.
                   </div>
                 </div>
@@ -551,14 +648,14 @@
 
               <li class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq-4-answer" id="faq-4-btn">
-                  Which teams are included?
+                  <span data-i18n="faq.q4">Which teams are included?</span>
                   <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9"/>
                   </svg>
                 </button>
                 <div class="faq-answer" id="faq-4-answer" role="region" aria-labelledby="faq-4-btn">
-                  <div class="faq-answer-inner">
+                  <div class="faq-answer-inner" data-i18n="faq.a4">
                     All 48 national teams competing in the 2026 FIFA World Cup, spanning six confederations, UEFA, CONMEBOL, CONCACAF, CAF, AFC, and OFC. The full match schedule is bundled inside the extension.
                   </div>
                 </div>
@@ -566,14 +663,14 @@
 
               <li class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq-5-answer" id="faq-5-btn">
-                  Does the extension work offline?
+                  <span data-i18n="faq.q5">Does the extension work offline?</span>
                   <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9"/>
                   </svg>
                 </button>
                 <div class="faq-answer" id="faq-5-answer" role="region" aria-labelledby="faq-5-btn">
-                  <div class="faq-answer-inner">
+                  <div class="faq-answer-inner" data-i18n="faq.a5">
                     Yes. The complete World Cup 2026 schedule is bundled inside the extension package. PitchAlert makes no network requests and works fully offline, reminders fire from Chrome's local alarm scheduler.
                   </div>
                 </div>
@@ -581,14 +678,14 @@
 
               <li class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq-6-answer" id="faq-6-btn">
-                  How do I request a refund?
+                  <span data-i18n="faq.q6">How do I request a refund?</span>
                   <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9"/>
                   </svg>
                 </button>
                 <div class="faq-answer" id="faq-6-answer" role="region" aria-labelledby="faq-6-btn">
-                  <div class="faq-answer-inner">
+                  <div class="faq-answer-inner" data-i18n="faq.a6" data-i18n-html>
                     We honour a 30-day refund window for Pro purchases. Email us at <a href="mailto:tgparm973@gmail.com">tgparm973@gmail.com</a> with your order number and we'll process the refund promptly. See the full <a href="refund.html">Refund Policy</a> for details.
                   </div>
                 </div>
@@ -596,14 +693,14 @@
 
               <li class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq-7-answer" id="faq-7-btn">
-                  Chrome says "Proceed with caution", is that safe?
+                  <span data-i18n="faq.q7">Chrome says "Proceed with caution", is that safe?</span>
                   <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9"/>
                   </svg>
                 </button>
                 <div class="faq-answer" id="faq-7-answer" role="region" aria-labelledby="faq-7-btn">
-                  <div class="faq-answer-inner">
+                  <div class="faq-answer-inner" data-i18n="faq.a7">
                     Yes. Chrome shows that notice for any newly published extension that hasn't built up an install history yet with Enhanced Safe Browsing. It reflects our age in the store, not a security problem with the code. PitchAlert asks for only three permissions (alarms, notifications, storage), makes no network requests, and collects no data. Just click "Continue to install", the notice fades as more people install over time.
                   </div>
                 </div>
@@ -623,7 +720,7 @@
   =================================================================== -->
   <div class="disclaimer" role="note">
     <div class="container">
-      <p>Unofficial fan tool. Not affiliated with, endorsed by, or sponsored by FIFA or any national football association. "FIFA World Cup", "World Cup", and related marks are trademarks of their respective owners. PitchAlert is an independent product.</p>
+      <p data-i18n="disclaimer.text">Unofficial fan tool. Not affiliated with, endorsed by, or sponsored by FIFA or any national football association. "FIFA World Cup", "World Cup", and related marks are trademarks of their respective owners. PitchAlert is an independent product.</p>
     </div>
   </div>
 
@@ -641,7 +738,7 @@
             <img src="assets/logo/mark.png" alt="" class="footer-brand-mark" width="28" height="28">
             <span class="footer-brand-name">PitchAlert</span>
           </div>
-          <p class="footer-tagline">Never miss your team's World Cup match. Right in your browser.</p>
+          <p class="footer-tagline" data-i18n="footer.tagline">Never miss your team's World Cup match. Right in your browser.</p>
 
           <!--
             Chrome Web Store badge.
@@ -662,6 +759,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Available in the Chrome Web Store"
+            data-i18n-attr="aria-label:footer.cwsBadgeLabel"
           >
             <!-- Chrome logo SVG (inline, no external fetch) -->
             <svg class="cws-badge-chrome-icon" viewBox="0 0 24 24" fill="none"
@@ -674,8 +772,8 @@
               <line x1="10.88" y1="21.94" x2="15.46" y2="14"/>
             </svg>
             <span class="cws-badge-text">
-              <span class="cws-badge-text-top">Available in the</span>
-              <span class="cws-badge-text-bottom">Chrome Web Store</span>
+              <span class="cws-badge-text-top" data-i18n="footer.cwsBadgeTop">Available in the</span>
+              <span class="cws-badge-text-bottom" data-i18n="footer.cwsBadgeBottom">Chrome Web Store</span>
             </span>
           </a>
         </div>
@@ -693,7 +791,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2026 «SHAHUYT IT DEVELOPMENT» LLC. All rights reserved. PitchAlert is a product of «SHAHUYT IT DEVELOPMENT» LLC.</p>
+        <p class="footer-copy" data-i18n="footer.copyright">&copy; 2026 «SHAHUYT IT DEVELOPMENT» LLC. All rights reserved. PitchAlert is a product of «SHAHUYT IT DEVELOPMENT» LLC.</p>
         <p class="footer-mor">Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</p>
       </div>
 
@@ -704,5 +802,6 @@
   <script src="assets/js/faq.js"></script>
   <script src="assets/js/carousel.js"></script>
   <script src="assets/js/parallax.js"></script>
+  <script src="assets/js/i18n.js" defer></script>
 </body>
 </html>
